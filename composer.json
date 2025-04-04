@@ -1,0 +1,22 @@
+{
+  "name": "04l3x4ndr3/sdk-tecnospeed-plugmessage",
+  "description": "SDK Tecnospeed PlugMessage",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "O4l3x4ndr3\\SdkTecnospeedPlugMessage\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Alexandre G R Alves",
+      "email": "alexandre@2plug.com.br"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "guzzlehttp/guzzle": "^7.4.2"
+  }
+}

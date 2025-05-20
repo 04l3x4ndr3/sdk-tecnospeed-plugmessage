@@ -33,7 +33,6 @@ class HTTPClient
      * @param string $method
      * @param string $endpoint
      * @param array|null $data
-     * @param array $extraHeaders
      * @param string|null $context
      * @return object
      * @throws GuzzleException
@@ -41,8 +40,8 @@ class HTTPClient
     public function call(string $method, string $endpoint, ?array $data = null, ?string $context = 'v1'): object
     {
         $client = new Client();
-        $url = $this->config->getUrl($context) . $endpoint;
         $options = array_filter([
+            "base_uri" => $this->config->getUrl($context),
             'headers' => $this->header,
             'http_errors' => $this->http_errors,
             'json' => $data
@@ -50,7 +49,7 @@ class HTTPClient
 
         $this->requestBody = json_encode($data);
 
-        $res = $client->request($method, $url, $options);
+        $res = $client->request($method, $endpoint, $options);
 
         return json_decode($res->getBody());
     }
